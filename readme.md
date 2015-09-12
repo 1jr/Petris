@@ -41,6 +41,9 @@ A touch enabled Tetris built in JavaScript!
 - Preload das preservation during countdown
 - Finesse faults counter.
 
+## License
+
+[Link to license document.](LICENSE.txt) (It's MIT)
 
 ## Credits
 
