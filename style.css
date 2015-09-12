@@ -1,0 +1,358 @@
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGHiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
+}
+/* General */
+html {
+  font-size: 1em;
+}
+body {
+  font: 1em 'Source Sans Pro';
+  margin: 0;
+  background: #555;
+  background-size: cover;
+  color: #eee;
+}
+a {
+  color: #eee;
+  text-decoration: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th {
+  padding: 0;
+  font-weight: normal;
+}
+td {
+  padding: 0;
+}
+
+/* Header */
+h1 {
+  color: #eee;
+  font-size: 2rem;
+  margin: 0.65em 0;
+}
+h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center;
+}
+nav > ul {
+  margin: 0;
+  padding: 0;
+}
+.button,
+nav li {
+  display: block;
+}
+.button,
+nav a {
+  font: 1.25rem 'Lato';
+  display: inline-block;
+  width: 50%;
+  color: #eee;
+  border: 2px solid #fff;
+  cursor: pointer;
+  border-radius: 1em;
+  padding: 0.3rem 0.6rem 0.4rem;
+  margin: 0.5em;
+  background: #333;
+}
+.button {
+  margin: 0;
+}
+/* Content */
+#content {
+  display: table;
+  margin: auto;
+  padding-top: 18px;
+}
+
+/* Canvases */
+#sprite {
+  display: none;
+}
+/*#bg {
+  position: fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}*/
+#bg {
+  position: fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  z-index: -1;
+}
+#a {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  display: block;
+}
+#b {
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px rgba(50,50,50,0.5);
+  position: relative;
+  overflow: hidden;
+  float: left;
+  z-index: 3;
+  display: block;
+  border-radius: 1em;
+}
+#c {
+  padding: 0 0.5em;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  display: block;
+}
+  #bgStack {
+    background: #333;
+    position: absolute;
+    z-index: 2;
+    border-radius: 1em;
+  }
+  #hold,
+  #preview,
+  #stack {
+    position: absolute;
+    z-index: 2;
+  }
+  #active {
+    position: absolute;
+    z-index: 3;
+  }
+  #msg {
+    font: 900 4rem 'Source Sans Pro', sans-serif;
+    font-size: 4rem;
+    color: #eee;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 642px;
+    margin: 0;
+    z-index: 4;
+  }
+#d {
+  padding: 0px 0.5em;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  display: block;
+}
+
+/* Stats */
+#stats {
+}
+#stats tbody {
+  display: block;
+}
+#stats tr {
+  display: block;
+  clear: both;
+  padding: 0;
+}
+#stats th {
+  text-transform: uppercase;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+#stats td {
+  font-size: 280%;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+  width: 100%;
+}
+#time {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.125em;
+  display: block;
+}
+
+/* Menus */
+.menu {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: -200%;
+  position: absolute;
+  background: #333;
+  top: 0;
+  z-index: 50;
+  border-radius: 1em;
+  opacity: 0;
+  /*-webkit-transition: opacity .4s ease-in-out;
+     -moz-transition: opacity .4s ease-in-out;
+       -o-transition: opacity .4s ease-in-out;*/
+          transition: opacity .8s ease-out,
+                      background .4s ease-out .3s,
+                      margin .4s ease-out;
+}
+.on {
+  background: rgba(50,50,50,0.8);
+  opacity: 1;
+  margin: 0;
+}
+
+/* Controls */
+#controls {
+  margin: 0 auto 1em;
+}
+#controls th {
+  font-weight: bold;
+  text-align: left;
+  line-height: 1.6;
+}
+#controls td {
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 0.2em 0 0.2em 2em;
+  text-align: center;
+  width: 6em;
+  line-height: 1.6;
+  background: #111;
+  border-radius: 5px;
+}
+#controls td:hover {
+  background: #191919;
+}
+
+#controls td:active {
+  background: #1a1a1a;
+}
+
+
+/* Settings */
+.left,
+.right {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition:all .1s ease-out;
+  transition:all .1s ease-out
+}
+.left:hover,
+.right:hover {
+  color: #4da6ee;
+}
+.left:before,
+.right:before {
+  text-decoration: inherit;
+  display: inline-block;
+}
+.left:before  { content: "\f022"; }
+.right:before { content: "\f023"; }
+
+#settings {
+  margin: 0 0 1em;
+}
+#settings b {
+  text-align: left;
+  display: inline-block;
+  width: 7em;
+}
+#settings span {
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  width: 5em;
+  margin: 0.3em 0;
+}
+
+/* Special Menus */
+#go {
+  background: none;
+  transition: opacity .8s ease-out .8s;
+}
+#go ul {
+  width: 100%;
+  position: absolute;
+  bottom: 2em;
+}
+
+#pause {
+  background: none;
+  transition: opacity .8s ease-out;
+}
+#pause ul {
+  width: 100%;
+  position: absolute;
+  bottom: 2em;
+}
+
+nav#leftctrls {
+  position: absolute;
+  bottom: 6em;
+  left: 2em;
+  z-index: 60;
+}
+
+nav#rightctrls {
+  position: absolute;
+  bottom: 6em;
+  right: 2em;
+  z-index: 60;
+
+}
+
+nav.touchctrl li {
+  display: inline-block;
+  text-align: center;
+}
+
+nav#leftctrls a {
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  padding: 0px;
+  line-height: 2em;
+}
+
+nav#rightctrls a {
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  padding: 0px;
+  line-height: 2em;
+}
